@@ -7,7 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 const terraApplicationConfig = (env = {}) => ({
   entry: {
-    index: './src/index.jsx',
+    index: './test-harness/index.jsx',
   },
   output: {
     publicPath: 'auto',
@@ -15,9 +15,6 @@ const terraApplicationConfig = (env = {}) => ({
   plugins: [
     new ModuleFederationPlugin({
       name: 'application-harness',
-      // remotes: {
-      //   organizer: 'organizer@http://localhost:8081/OrganizerPages.js',
-      // },
       shared: {
         react: {
           singleton: true,
@@ -47,7 +44,7 @@ const terraApplicationConfig = (env = {}) => ({
     new HtmlWebpackPlugin({
       lang: env.defaultLocale || 'en',
       filename: 'index.html',
-      template: './src/template/index.html',
+      template: './test-harness/index.html',
       rootElementId: 'root',
     }),
     new DefinePlugin({
@@ -55,7 +52,7 @@ const terraApplicationConfig = (env = {}) => ({
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'src/config', to: 'config' },
+        { from: 'test-harness/AppConfig.json', to: 'config/AppConfig.json' },
       ],
     }),
   ],

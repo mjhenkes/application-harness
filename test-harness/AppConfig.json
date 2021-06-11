@@ -1,0 +1,39 @@
+{
+  "applications": {
+    "terra-application-harness": {
+      "id": "terra-application-harness",
+      "title": "terra-application-harness",
+      "version": "0.0.1",
+      "route": "terra-application-harness",
+      "requiresPatientContext": false,
+      "modules": {
+        "pages": [
+          {
+            "navigationKey": "my-day",
+            "label": "My Day",
+            "moduleKey": "MyDay"
+          }
+        ]
+      }
+    }
+  },
+  "modules": {
+    "pages": {
+      "MyDay": {
+        "url": "https://mjhenkes.github.io/organizer-container/remoteEntry.js",
+        "scope": "organizer",
+        "module": "./PatientList"
+
+      }
+    },
+    "workspaceItems": {
+
+    },
+    "extensions": {
+
+    },
+    "workflowSummaryItems": {
+
+    }
+  }
+}
